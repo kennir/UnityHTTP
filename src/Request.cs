@@ -77,10 +77,16 @@ namespace HTTP
             this.method = method;
             this.uri = new Uri (uri);
             this.bytes = form.data;
-            foreach ( DictionaryEntry entry in form.headers )
-            {
-                this.AddHeader( (string)entry.Key, (string)entry.Value );
-            }
+//            foreach ( DictionaryEntry entry in form.headers )
+//            {
+//                this.AddHeader( (string)entry.Key, (string)entry.Value );
+//            }
+
+			foreach(var entry in form.headers) 
+			{
+				this.AddHeader(entry.Key,entry.Value);
+			}
+
         }
 
         public Request( string method, string uri, Hashtable data )
